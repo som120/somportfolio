@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Card } from './ui/card';
 import { Eye, Clock, Mouse, TrendingUp, RefreshCw } from 'lucide-react';
-import { projectId, publicAnonKey } from '../utils/supabase/info';
-
+const projectId = import.meta.env.VITE_PRODUCT_ID;
+const publicAnonKey = import.meta.env.VITE_PUBLIC_ANON_KEY;
 const API_URL = `https://${projectId}.supabase.co/functions/v1/make-server-ab90b3c1`;
 
 interface AnalyticsStats {
