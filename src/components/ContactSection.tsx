@@ -33,7 +33,7 @@ export function ContactSection() {
     { icon: Github, href: 'https://github.com/som120', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/somnath03', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://x.com/Som3202?t=oh8TyLyAbA61AX6riFeFzg&s=09', label: 'Twitter' },
-    { icon: Mail, href: 'raxalpha36@gmail.com', label: 'Email' }
+    { icon: Mail, href: 'mailto:raxalpha36@gmail.com', label: 'Email' }
   ]
 
   return (

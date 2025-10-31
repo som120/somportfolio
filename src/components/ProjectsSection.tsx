@@ -11,7 +11,7 @@ export function ProjectsSection() {
     {
       title: 'PingMe (Chat App)',
       description: 'A real-time chat and social connectivity app built with Flutter and Firebase. It features instant messaging, user authentication, media sharing, and push notifications, all powered by a seamless and responsive UI. Designed with Figma, the app ensures smooth cross-platform performance and a modern user experience.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1694878981964-c9d8f1ffc19d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070?w=600&h=400&fit=crop',
       technologies: ['Flutter', 'Firebase', 'Cubit', 'Getit'],
       github: 'https://github.com/som120/PingMe',
       live: 'https://github.com/som120/PingMe',
@@ -20,7 +20,7 @@ export function ProjectsSection() {
     {
       title: 'AnimeVault',
       description: 'A sleek anime discovery app built with Flutter and Firebase, allowing users to explore, search, and bookmark their favorite anime. It features a clean UI, smooth performance, and real-time data updates for an engaging user experience.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop',
+      image: 'https://cdn.dribbble.com/userupload/37719778/file/original-0995a4d0854db9f7aad0a27f4293de43.png?resize=2400x1800&vertical=center?w=600&h=400&fit=crop',
       technologies: ['Flutter', 'Appwrite', 'RESTful API', 'Figma'],
       github: 'https://github.com/som120/AnimeVault',
       live: 'https://github.com/som120/AnimeVault',
