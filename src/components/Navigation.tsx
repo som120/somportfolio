@@ -54,6 +54,7 @@ export function Navigation() {
               </motion.button>
             ))}
           </div>
+          
         </div>
       </div>
     </motion.nav>
