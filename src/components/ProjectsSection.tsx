@@ -1,71 +1,83 @@
-'use client'
+"use client";
 
-import { motion } from 'motion/react'
-import { Card } from './ui/card'
-import { Button } from './ui/button'
-import { ExternalLink, Github } from 'lucide-react'
-import { ImageWithFallback } from './figma/ImageWithFallback'
+import { motion } from "motion/react";
+import { Card } from "./ui/card";
+import { Button } from "./ui/button";
+import { ExternalLink, Github } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function ProjectsSection() {
   const projects = [
     {
-      title: 'PingMe (Chat App)',
-      description: 'A real-time chat and social connectivity app built with Flutter and Firebase. It features instant messaging, user authentication, media sharing, and push notifications, all powered by a seamless and responsive UI. Designed with Figma, the app ensures smooth cross-platform performance and a modern user experience.',
-      image: 'https://images.unsplash.com/photo-1694878981964-c9d8f1ffc19d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070?w=600&h=400&fit=crop',
-      technologies: ['Flutter', 'Firebase', 'Cubit', 'Getit'],
-      github: 'https://github.com/som120/PingMe',
-      live: 'https://github.com/som120/PingMe',
-      featured: true
+      title: "PingMe (Chat App)",
+      description:
+        "A real-time chat and social connectivity app built with Flutter and Firebase. It features instant messaging, user authentication, media sharing, and push notifications, all powered by a seamless and responsive UI. Designed with Figma, the app ensures smooth cross-platform performance and a modern user experience.",
+      image:
+        "https://images.unsplash.com/photo-1694878981964-c9d8f1ffc19d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070?w=600&h=400&fit=crop",
+      technologies: ["Flutter", "Firebase", "Cubit", "Getit"],
+      github: "https://github.com/som120/PingMe",
+      live: "https://github.com/som120/PingMe",
+      featured: true,
     },
     {
-      title: 'AnimeVault',
-      description: 'A sleek anime discovery app built with Flutter and Firebase, allowing users to explore, search, and bookmark their favorite anime. It features a clean UI, smooth performance, and real-time data updates for an engaging user experience.',
-      image: 'https://cdn.dribbble.com/userupload/37719778/file/original-0995a4d0854db9f7aad0a27f4293de43.png?resize=2400x1800&vertical=center?w=600&h=400&fit=crop',
-      technologies: ['Flutter', 'Appwrite', 'RESTful API', 'Figma'],
-      github: 'https://github.com/som120/AnimeVault',
-      live: 'https://github.com/som120/AnimeVault',
-      featured: true
+      title: "AnimeVault",
+      description:
+        "A sleek anime discovery app built with Flutter and Firebase, allowing users to explore, search, and bookmark their favorite anime. It features a clean UI, smooth performance, and real-time data updates for an engaging user experience.",
+      image:
+        "https://cdn.dribbble.com/userupload/37719778/file/original-0995a4d0854db9f7aad0a27f4293de43.png?resize=2400x1800&vertical=center?w=600&h=400&fit=crop",
+      technologies: ["Flutter", "Appwrite", "RESTful API", "Figma"],
+      github: "https://github.com/som120/AnimeVault",
+      live: "https://github.com/som120/AnimeVault",
+      featured: true,
     },
     {
-      title: 'Weather Dashboard',
-      description: 'A responsive weather application with location-based forecasts, interactive maps, and data visualization using Chart.js.',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop',
-      technologies: ['Vue.js', 'Chart.js', 'OpenWeather API', 'Tailwind'],
-      github: '#',
-      live: '#',
-      featured: false
+      title: "Weather Dashboard",
+      description:
+        "A responsive weather application with location-based forecasts, interactive maps, and data visualization using Chart.js.",
+      image:
+        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
+      technologies: ["Vue.js", "Chart.js", "OpenWeather API", "Tailwind"],
+      github: "#",
+      live: "#",
+      featured: false,
     },
     {
-      title: 'Social Media Analytics',
-      description: 'A dashboard for social media analytics with real-time data processing, custom visualizations, and automated reporting.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
-      technologies: ['Python', 'Django', 'React', 'D3.js'],
-      github: '#',
-      live: '#',
-      featured: false
+      title: "Social Media Analytics",
+      description:
+        "A dashboard for social media analytics with real-time data processing, custom visualizations, and automated reporting.",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      technologies: ["Python", "Django", "React", "D3.js"],
+      github: "#",
+      live: "#",
+      featured: false,
     },
     {
-      title: 'AI Chat Interface',
-      description: 'An intelligent chat interface with natural language processing, context awareness, and multi-language support.',
-      image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop',
-      technologies: ['React', 'OpenAI API', 'Node.js', 'WebSocket'],
-      github: '#',
-      live: '#',
-      featured: false
+      title: "AI Chat Interface",
+      description:
+        "An intelligent chat interface with natural language processing, context awareness, and multi-language support.",
+      image:
+        "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop",
+      technologies: ["React", "OpenAI API", "Node.js", "WebSocket"],
+      github: "#",
+      live: "#",
+      featured: false,
     },
     {
-      title: 'Portfolio Website',
-      description: 'A responsive portfolio website with smooth animations, dark theme, and optimized performance built with modern web technologies.',
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop',
-      technologies: ['Next.js', 'Framer Motion', 'Tailwind', 'TypeScript'],
-      github: '#',
-      live: '#',
-      featured: false
-    }
-  ]
+      title: "Portfolio Website",
+      description:
+        "A responsive portfolio website with smooth animations, dark theme, and optimized performance built with modern web technologies.",
+      image:
+        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
+      technologies: ["Next.js", "Framer Motion", "Tailwind", "TypeScript"],
+      github: "#",
+      live: "#",
+      featured: false,
+    },
+  ];
 
-  const featuredProjects = projects.filter(p => p.featured)
-  const otherProjects = projects.filter(p => !p.featured)
+  const featuredProjects = projects.filter((p) => p.featured);
+  const otherProjects = projects.filter((p) => !p.featured);
 
   return (
     <section id="projects" className="py-20 bg-gray-900">
@@ -77,10 +89,13 @@ export function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl text-white mb-6">Featured Projects</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto"></div>
+          <h2 className="text-4xl md:text-5xl text-white mb-6">
+            Featured Projects
+          </h2>
+          <div className="w-24 h-1 bg-linear-to-r from-emerald-400 to-blue-400 mx-auto"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and passion for App development
+            Here are some of my recent projects that showcase my skills and
+            passion for App development
           </p>
         </motion.div>
 
@@ -121,7 +136,7 @@ export function ProjectsSection() {
                     </motion.a>
                   </div>
                 </div>
-                
+
                 <div className="p-6">
                   <h3 className="text-xl text-white mb-3 group-hover:text-emerald-400 transition-colors duration-300">
                     {project.title}
@@ -153,7 +168,9 @@ export function ProjectsSection() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <h3 className="text-2xl text-white text-center mb-8">Other Projects</h3>
+          <h3 className="text-2xl text-white text-center mb-8">
+            Other Projects
+          </h3>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -188,7 +205,7 @@ export function ProjectsSection() {
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="p-4">
                   <h4 className="text-lg text-white mb-2 group-hover:text-emerald-400 transition-colors duration-300">
                     {project.title}
@@ -219,8 +236,8 @@ export function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             className="border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 px-8 py-3"
           >
             View All Projects
@@ -228,5 +245,5 @@ export function ProjectsSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

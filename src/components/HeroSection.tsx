@@ -16,14 +16,14 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden"
+      className="min-h-screen pt-14 flex flex-col items-center justify-center relative overflow-hidden"
     >
       <div className="absolute inset-0 overflow-hidden">
         <HyperspeedBackground />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-gray-900/40 to-black/70" />
+        <div className="absolute inset-0 bg-linear-to-br from-black/70 via-gray-900/40 to-black/70" />
       </div>
 
-      <div className="flex flex-col items-center justify-center text-center flex-grow relative z-10 px-6">
+      <div className="flex flex-col items-center justify-center text-center grow relative z-10 px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,11 +55,11 @@ export function HeroSection() {
             className="text-2xl md:text-4xl text-gray-300 mb-8"
           >
             I'm an{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-blue-400">
               App Developer
             </span>{" "}
             specializing in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-pink-400">
               Modern Mobile Applications
             </span>
           </motion.div>
@@ -83,7 +83,7 @@ export function HeroSection() {
           >
             <Button
               onClick={scrollToProjects}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white p-6 rounded-full transition-all duration-300 transform hover:scale-105"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-6 rounded-full transition-all duration-300 transform hover:scale-105"
             >
               View My Work
             </Button>
@@ -110,32 +110,23 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="relative z-10 flex justify-center mb-8 cursor-pointer"
-        onClick={() => {
-          const element = document.getElementById("about");
-          if (element) element.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 text-white/60 hover:text-emerald-400 transition-colors duration-300"
-        >
-          <span className="text-sm tracking-widest uppercase">
-            Scroll to Explore
-          </span>
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
+        <motion.div className="flex flex-col items-center gap-2 text-white/60 cursor-pointer hover:text-emerald-400 transition-colors duration-300">
+          <span className="text-xs tracking-widest">Scroll to Explore</span>
           <motion.div
-            animate={{ y: [0, 8, 0], opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: [1, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-white/30 rounded-full relative"
           >
-            <ArrowDown className="w-6 h-6" />
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-1 h-2 bg-emerald-400 rounded-full absolute left-1/2 top-2 transform -translate-x-1/2"
+            />
           </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }

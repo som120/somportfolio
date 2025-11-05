@@ -1,43 +1,51 @@
-'use client'
+"use client";
 
-import { motion } from 'motion/react'
-import { Card } from './ui/card'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { Textarea } from './ui/textarea'
-import { Github, Linkedin, Mail, Twitter, MapPin, Phone } from 'lucide-react'
+import { motion } from "motion/react";
+import { Card } from "./ui/card";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Github, Linkedin, Mail, Twitter, MapPin, Phone } from "lucide-react";
 
 export function ContactSection() {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'raxalpha36@gmail.com',
-      href: 'mailto:raxalpha36@gmail.com'
+      label: "Email",
+      value: "raxalpha36@gmail.com",
+      href: "mailto:raxalpha36@gmail.com",
     },
     {
       icon: Phone,
-      label: 'Phone',
-      value: '+91-1234567890',
-      href: 'tel:+911234567890'
+      label: "Phone",
+      value: "+91-1234567890",
+      href: "tel:+911234567890",
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Delhi, IND',
-      href: '#'
-    }
-  ]
+      label: "Location",
+      value: "Delhi, IND",
+      href: "#",
+    },
+  ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/som120', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/somnath03', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://x.com/Som3202?t=oh8TyLyAbA61AX6riFeFzg&s=09', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:raxalpha36@gmail.com', label: 'Email' }
-  ]
+    { icon: Github, href: "https://github.com/som120", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "https://linkedin.com/in/somnath03",
+      label: "LinkedIn",
+    },
+    {
+      icon: Twitter,
+      href: "https://x.com/Som3202?t=oh8TyLyAbA61AX6riFeFzg&s=09",
+      label: "Twitter",
+    },
+    { icon: Mail, href: "mailto:raxalpha36@gmail.com", label: "Email" },
+  ];
 
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section id="contact" className="py-20 bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,9 +55,9 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl text-white mb-6">Get In Touch</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-linear-to-r from-purple-400 to-pink-400 mx-auto"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and interesting projects. 
+            I'm always interested in new opportunities and interesting projects.
             Let's discuss how we can work together!
           </p>
         </motion.div>
@@ -67,47 +75,57 @@ export function ContactSection() {
               <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-gray-300 text-sm mb-2 block">First Name</label>
+                    <label className="text-gray-300 text-sm mb-2 block">
+                      First Name
+                    </label>
                     <Input
                       placeholder="Your first name"
                       className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500"
                     />
                   </div>
                   <div>
-                    <label className="text-gray-300 text-sm mb-2 block">Last Name</label>
+                    <label className="text-gray-300 text-sm mb-2 block">
+                      Last Name
+                    </label>
                     <Input
                       placeholder="Your last name"
                       className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500"
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label className="text-gray-300 text-sm mb-2 block">Email</label>
+                  <label className="text-gray-300 text-sm mb-2 block">
+                    Email
+                  </label>
                   <Input
                     type="email"
                     placeholder="your.email@example.com"
                     className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500"
                   />
                 </div>
-                
+
                 <div>
-                  <label className="text-gray-300 text-sm mb-2 block">Subject</label>
+                  <label className="text-gray-300 text-sm mb-2 block">
+                    Subject
+                  </label>
                   <Input
                     placeholder="Project discussion"
                     className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500"
                   />
                 </div>
-                
+
                 <div>
-                  <label className="text-gray-300 text-sm mb-2 block">Message</label>
+                  <label className="text-gray-300 text-sm mb-2 block">
+                    Message
+                  </label>
                   <Textarea
                     placeholder="Tell me about your project..."
                     rows={5}
                     className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500 resize-none"
                   />
                 </div>
-                
+
                 <Button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3">
                   Send Message
                 </Button>
@@ -126,9 +144,9 @@ export function ContactSection() {
             <div>
               <h3 className="text-2xl text-white mb-6">Let's connect</h3>
               <p className="text-gray-400 leading-relaxed mb-8">
-                I'm currently available for freelance work and full-time opportunities. 
-                Whether you have a project in mind or just want to chat about technology, 
-                I'd love to hear from you.
+                I'm currently available for freelance work and full-time
+                opportunities. Whether you have a project in mind or just want
+                to chat about technology, I'd love to hear from you.
               </p>
             </div>
 
@@ -186,10 +204,11 @@ export function ContactSection() {
           className="border-t border-white/10 mt-16 pt-8 text-center"
         >
           <p className="text-gray-400">
-            © 2025 Somnath Paul. Designed &amp; Built with ❤️ using React and Tailwind CSS.
+            © 2025 Somnath Paul. Designed &amp; Built with ❤️ using React and
+            Tailwind CSS.
           </p>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

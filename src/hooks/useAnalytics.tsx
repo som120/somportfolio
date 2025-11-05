@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
-import { projectId, publicAnonKey } from '../utils/supabase/info';
+import { useEffect, useRef } from "react";
+const projectId = import.meta.env.VITE_PRODUCT_ID;
+const publicAnonKey = import.meta.env.VITE_PUBLIC_ANON_KEY;
 
 interface AnalyticsEvent {
   event: string;
@@ -32,7 +33,7 @@ interface SessionData {
 const API_URL = `https://${projectId}.supabase.co/functions/v1/make-server-ab90b3c1`;
 
 export const useAnalytics = () => {
-  const sessionIdRef = useRef<string>('');
+  const sessionIdRef = useRef<string>("");
   const sessionStartRef = useRef<number>(0);
   const maxScrollDepthRef = useRef<number>(0);
   const interactionCountRef = useRef<number>(0);
@@ -40,15 +41,17 @@ export const useAnalytics = () => {
   // Generate or retrieve session ID
   const getSessionId = () => {
     if (sessionIdRef.current) return sessionIdRef.current;
-    
-    const stored = sessionStorage.getItem('analytics_session_id');
+
+    const stored = sessionStorage.getItem("analytics_session_id");
     if (stored) {
       sessionIdRef.current = stored;
       return stored;
     }
-    
-    const newId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    sessionStorage.setItem('analytics_session_id', newId);
+
+    const newId = `session_${Date.now()}_${Math.random()
+      .toString(36)
+      .substr(2, 9)}`;
+    sessionStorage.setItem("analytics_session_id", newId);
     sessionIdRef.current = newId;
     return newId;
   };
@@ -67,26 +70,31 @@ export const useAnalytics = () => {
       userAgent: navigator.userAgent,
     };
 
-    console.log('📊 Page View:', pageViewData);
-    
+    console.log("📊 Page View:", pageViewData);
+
     // Send to Supabase backend
     try {
       await fetch(`${API_URL}/analytics/pageview`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${publicAnonKey}`,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${publicAnonKey}`,
         },
         body: JSON.stringify(pageViewData),
       });
     } catch (error) {
-      console.error('Failed to track page view:', error);
+      console.error("Failed to track page view:", error);
     }
-    
+
     // Also store locally as backup
-    const views = JSON.parse(localStorage.getItem('analytics_pageviews') || '[]');
+    const views = JSON.parse(
+      localStorage.getItem("analytics_pageviews") || "[]"
+    );
     views.push(pageViewData);
-    localStorage.setItem('analytics_pageviews', JSON.stringify(views.slice(-50)));
+    localStorage.setItem(
+      "analytics_pageviews",
+      JSON.stringify(views.slice(-50))
+    );
   };
 
   // Track scroll depth
@@ -94,23 +102,28 @@ export const useAnalytics = () => {
     const windowHeight = window.innerHeight;
     const documentHeight = document.documentElement.scrollHeight;
     const scrollTop = window.scrollY;
-    const scrollPercentage = Math.round(((scrollTop + windowHeight) / documentHeight) * 100);
+    const scrollPercentage = Math.round(
+      ((scrollTop + windowHeight) / documentHeight) * 100
+    );
 
     if (scrollPercentage > maxScrollDepthRef.current) {
       maxScrollDepthRef.current = scrollPercentage;
-      
+
       // Track milestone scroll depths
       if ([25, 50, 75, 90, 100].includes(scrollPercentage)) {
         console.log(`📊 Scroll Depth: ${scrollPercentage}%`);
-        trackInteraction('scroll_depth', { depth: scrollPercentage });
+        trackInteraction("scroll_depth", { depth: scrollPercentage });
       }
     }
   };
 
   // Track user interactions
-  const trackInteraction = async (action: string, data?: Record<string, any>) => {
+  const trackInteraction = async (
+    action: string,
+    data?: Record<string, any>
+  ) => {
     interactionCountRef.current += 1;
-    
+
     const event: AnalyticsEvent = {
       event: action,
       timestamp: Date.now(),
@@ -120,20 +133,20 @@ export const useAnalytics = () => {
       },
     };
 
-    console.log('📊 Interaction:', event);
-    
+    console.log("📊 Interaction:", event);
+
     // Send to Supabase backend
     try {
       await fetch(`${API_URL}/analytics/event`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${publicAnonKey}`,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${publicAnonKey}`,
         },
         body: JSON.stringify(event),
       });
     } catch (error) {
-      console.error('Failed to track interaction:', error);
+      console.error("Failed to track interaction:", error);
     }
   };
 
@@ -149,75 +162,80 @@ export const useAnalytics = () => {
       interactions: interactionCountRef.current,
     };
 
-    console.log('📊 Session End:', sessionData);
-    
+    console.log("📊 Session End:", sessionData);
+
     // Send to Supabase backend
     try {
       await fetch(`${API_URL}/analytics/session`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${publicAnonKey}`,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${publicAnonKey}`,
         },
         body: JSON.stringify(sessionData),
       });
     } catch (error) {
-      console.error('Failed to track session:', error);
+      console.error("Failed to track session:", error);
     }
-    
+
     // Also store locally as backup
-    const sessions = JSON.parse(localStorage.getItem('analytics_sessions') || '[]');
+    const sessions = JSON.parse(
+      localStorage.getItem("analytics_sessions") || "[]"
+    );
     sessions.push(sessionData);
-    localStorage.setItem('analytics_sessions', JSON.stringify(sessions.slice(-20)));
+    localStorage.setItem(
+      "analytics_sessions",
+      JSON.stringify(sessions.slice(-20))
+    );
   };
 
   useEffect(() => {
     // Initialize session
     sessionStartRef.current = Date.now();
     getSessionId();
-    
+
     // Track page view
     trackPageView();
 
     // Track scroll depth
     const handleScroll = () => trackScrollDepth();
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Track clicks
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const tagName = target.tagName.toLowerCase();
-      
-      if (['a', 'button'].includes(tagName) || target.closest('a, button')) {
-        const element = target.closest('a, button');
-        trackInteraction('click', {
+
+      if (["a", "button"].includes(tagName) || target.closest("a, button")) {
+        const element = target.closest("a, button");
+        trackInteraction("click", {
           element: element?.tagName.toLowerCase(),
           text: element?.textContent?.trim().substring(0, 50),
           href: (element as HTMLAnchorElement)?.href,
         });
       }
     };
-    document.addEventListener('click', handleClick);
+    document.addEventListener("click", handleClick);
 
     // Track session end on page unload
     const handleUnload = () => trackSessionEnd();
-    window.addEventListener('beforeunload', handleUnload);
+    window.addEventListener("beforeunload", handleUnload);
 
     // Track visibility changes
     const handleVisibilityChange = () => {
       if (document.hidden) {
-        console.log('📊 Page Hidden');
+        console.log("📊 Page Hidden");
       } else {
-        console.log('📊 Page Visible');
+        console.log("📊 Page Visible");
       }
     };
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.removeEventListener('click', handleClick);
-      window.removeEventListener('beforeunload', handleUnload);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleClick);
+      window.removeEventListener("beforeunload", handleUnload);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 

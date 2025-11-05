@@ -1,35 +1,39 @@
-'use client'
+"use client";
 
-import { motion } from 'motion/react'
-import { Card } from './ui/card'
-import { Code, Coffee, Lightbulb, Users } from 'lucide-react'
+import { motion } from "motion/react";
+import { Card } from "./ui/card";
+import { Code, Coffee, Lightbulb, Users } from "lucide-react";
 
 export function AboutSection() {
   const features = [
     {
       icon: Code,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable, and efficient code that stands the test of time.'
+      title: "Clean Code",
+      description:
+        "Writing maintainable, scalable, and efficient code that stands the test of time.",
     },
     {
       icon: Lightbulb,
-      title: 'Innovation',
-      description: 'Always exploring new technologies and creative solutions to complex problems.'
+      title: "Innovation",
+      description:
+        "Always exploring new technologies and creative solutions to complex problems.",
     },
     {
       icon: Users,
-      title: 'Collaboration',
-      description: 'Working effectively with teams to deliver exceptional user experiences.'
+      title: "Collaboration",
+      description:
+        "Working effectively with teams to deliver exceptional user experiences.",
     },
     {
       icon: Coffee,
-      title: 'Dedication',
-      description: 'Committed to continuous learning and staying current with industry trends.'
-    }
-  ]
+      title: "Dedication",
+      description:
+        "Committed to continuous learning and staying current with industry trends.",
+    },
+  ];
 
   return (
-    <section id="about" className="py-20 bg-gray-900">
+    <section id="about" className="py-20 bg-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,9 +43,9 @@ export function AboutSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl text-white mb-6">About Me</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto"></div>
+          <div className="w-24 h-1 bg-linear-to-r from-emerald-400 to-blue-400 mx-auto"></div>
         </motion.div>
-        
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -54,18 +58,23 @@ export function AboutSection() {
               Passionate about creating digital experiences that matter
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              With experience in App development, I’ve collaborated on projects that blend creativity and technology to deliver smooth, 
-              impactful mobile experiences. My journey started with a fascination for how apps come to life — and it’s grown into a full-fledged 
-              passion for designing and developing user-centric solutions.
+              With experience in App development, I’ve collaborated on projects
+              that blend creativity and technology to deliver smooth, impactful
+              mobile experiences. My journey started with a fascination for how
+              apps come to life — and it’s grown into a full-fledged passion for
+              designing and developing user-centric solutions.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              I specialize in Flutter, Dart, and Firebase, crafting cross-platform apps that are fast, beautiful, and reliable. Along the way, 
-              I’ve also worked with Python, Git, SQL, and design tools like Figma and Procreate, allowing me to handle both the technical and 
-              creative sides of app development.
-              When I’m not coding, you’ll often find me sketching UI ideas, experimenting with new Flutter widgets, or exploring innovative design 
-              trends to make every project stand out.
+              I specialize in Flutter, Dart, and Firebase, crafting
+              cross-platform apps that are fast, beautiful, and reliable. Along
+              the way, I’ve also worked with Python, Git, SQL, and design tools
+              like Figma and Procreate, allowing me to handle both the technical
+              and creative sides of app development. When I’m not coding, you’ll
+              often find me sketching UI ideas, experimenting with new Flutter
+              widgets, or exploring innovative design trends to make every
+              project stand out.
             </p>
-            
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +82,12 @@ export function AboutSection() {
               viewport={{ once: true }}
               className="flex flex-wrap gap-3 mt-6"
             >
-              {['Problem Solver', 'Team Player', 'Quick Learner', 'Detail Oriented'].map((trait, index) => (
+              {[
+                "Problem Solver",
+                "Team Player",
+                "Quick Learner",
+                "Detail Oriented",
+              ].map((trait, index) => (
                 <span
                   key={trait}
                   className="px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-sm border border-emerald-500/30"
@@ -83,7 +97,7 @@ export function AboutSection() {
               ))}
             </motion.div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -112,5 +126,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
