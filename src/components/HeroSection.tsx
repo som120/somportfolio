@@ -12,6 +12,12 @@ export function HeroSection() {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const scrollToAbout = () => {
+    const element = document.getElementById("about");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -110,7 +116,10 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
+      <div
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+        onClick={scrollToAbout}
+      >
         <motion.div className="flex flex-col items-center gap-2 text-white/60 cursor-pointer hover:text-emerald-400 transition-colors duration-300">
           <span className="text-xs tracking-widest">Scroll to Explore</span>
           <motion.div
