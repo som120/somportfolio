@@ -204,8 +204,7 @@ export function ContactSection() {
           className="border-t border-white/10 mt-16 pt-8 text-center"
         >
           <p className="text-gray-400">
-            © 2025 Somnath Paul. Designed &amp; Built with ❤️ using React and
-            Tailwind CSS.
+            © 2025 Somnath Paul. Designed &amp; Built with ❤️
           </p>
         </motion.div>
       </div>
