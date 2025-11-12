@@ -187,3 +187,12 @@
 html {
   font-size: var(--font-size);
 }
+* {
+  cursor: none !important;
+}
+
+input,
+textarea,
+select {
+  cursor: text !important;
+}
